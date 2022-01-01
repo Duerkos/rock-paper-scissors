@@ -72,3 +72,21 @@ body {
     width:40vw;
     height:40vw;
 }
+#buttonsMainContainer{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-evenly;
+}
+.buttonsContainer{
+    display:flex;
+    flex-direction:row;
+    flex: 1;
+    justify-content: center;
+}
+#playerButtons{
+    background-color: var(--light-bg);
+}
+#computerButtons{
+    background-color: var(--colourful-color);
+}
