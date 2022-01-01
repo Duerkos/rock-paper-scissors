@@ -4,6 +4,7 @@
 :root {
     --header-bg: rgb(6, 70, 53);
     --light-bg: rgb(81, 146, 89);
+    --light-green:  rgb(161, 209, 166);
     --colourful-color: rgb(240, 187, 98);
     --lightest-bg: rgb(244, 238, 169);
 }
@@ -56,12 +57,20 @@ body {
     font-size: medium;
 }
 
-#avatarContainer{
-    background-color: var(--lightest-bg);
+#mainContainer{
     display:flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+}
+
+#left{
+    background-color: var(--light-bg);
+
+}
+
+#right{
+    background-color: var(--colourful-color);
 }
 
 .avatar img{
@@ -69,24 +78,53 @@ body {
     border-radius: 20px;
     border-style: solid;
     border-color: var(--colourful-color);
-    width:40vw;
-    height:40vw;
+    width:30vw;
+    height:30vw;
 }
-#buttonsMainContainer{
+
+#programAvatar {
+    border-color: var(--light-bg);
+}
+
+.halfContainer{
     display:flex;
     flex-direction: row;
     align-items:center;
     justify-content: space-evenly;
-}
-.buttonsContainer{
-    display:flex;
-    flex-direction:row;
     flex: 1;
-    justify-content: center;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
 }
 #playerButtons{
-    background-color: var(--light-bg);
+    height: 4rem;
+    width: 4rem;
+    flex: 0;
+    display:flex;
+    justify-content: center;
+    flex-flow:column nowrap;
+    gap: 0.5rem;
 }
-#computerButtons{
-    background-color: var(--colourful-color);
+.playerButton{
+    background-color: var(--light-green);
+    border-color: var(--colourful-color);
+    border-radius: 20px;
+    border-style: solid;
+    font-size: small;
+}
+#computerChoice{
+    height: 4rem;
+    width: 4rem;
+    background-color: var(--lightest-bg);
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: var(--light-bg);
+}
+#textOutput{
+    text-align: center;
+    background-color: var(--lightest-bg);
+    padding: 1rem;
 }
