@@ -38,7 +38,6 @@ let computerScore = document.querySelector("#computerScore");
 let playerScore = document.querySelector("#playerScore");
 let computerWins = 0;
 let playerWins = 0;
-//(max(computerWins, playerWins) < 5)
 
 
 const buttonalerts = document.querySelectorAll('.playerButton');
@@ -72,11 +71,13 @@ function game(playerSelection){
                 textOutput.textContent = (`Tables! Both chose ${computerSelection}`);
                 break;
         }
-    if (max(computerWins, playerWins) >= 5) {
+    if (max(computerWins, playerWins) >= 5){
         let winDiv = createWinDiv();
         winDiv.textContent = ((computerWins < playerWins) ? `You win the game!! ${playerWins} vs ${computerWins}` : `Computer won the game ${computerWins} vs ${playerWins}`);
+        //hide buttons! well remove them lol, maybe we can readd them or just refresh
+        //need to do more things here
         buttonalerts.forEach((button) => {
-            button.removeEventListener('click');
+            button.remove();
         });
     }
 }
