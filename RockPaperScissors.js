@@ -34,6 +34,8 @@ function playRound (playerSelection, computerSelection) {
     else return "computer";
 }
 
+let computerScore = document.querySelector("#computerScore");
+let playerScore = document.querySelector("#playerScore");
 let computerWins = 0;
 let playerWins = 0;
 //(max(computerWins, playerWins) < 5)
@@ -48,6 +50,8 @@ buttonalerts.forEach((button) => {
   });
 
 function game(playerSelection){
+    //this removes the preload class that avoided transitions on the start
+    document.body.classList.remove("preload");
     let winner;
         let computerSelection = computerPlay();
         winner = playRound(playerSelection, computerSelection);
@@ -55,12 +59,12 @@ function game(playerSelection){
         playerDiv.classList.remove("backgroundRed");
         switch (winner) {
             case "player":
-                playerWins++;
+                playerScore.textContent = ++playerWins;
                 computerDiv.classList.add("backgroundRed");
                 textOutput.textContent = (`You Win! ${playerSelection} beats ${computerSelection}`);
                 break;
             case "computer":
-                computerWins++;
+                computerScore.textContent = ++computerWins;
                 playerDiv.classList.add("backgroundRed");
                 textOutput.textContent = (`You Lose! ${computerSelection} beats ${playerSelection}`);
                 break;
@@ -68,14 +72,22 @@ function game(playerSelection){
                 textOutput.textContent = (`Tables! Both chose ${computerSelection}`);
                 break;
         }
-    // textOutput.textContent = ((computerWins < playerWins) ? `You win the game: ${playerWins} vs ${computerWins}` : `Computer won the game: ${computerWins} vs ${playerWins}`)
+    if (max(computerWins, playerWins) >= 5) {
+        let winDiv = createWinDiv();
+        winDiv.textContent = ((computerWins < playerWins) ? `You win the game!! ${playerWins} vs ${computerWins}` : `Computer won the game ${computerWins} vs ${playerWins}`);
+        buttonalerts.forEach((button) => {
+            button.removeEventListener('click');
+        });
+    }
+}
+
+function createWinDiv(){
+    let winDiv = document.createElement("div");
+    winDiv.classList.add("winText");
+    textOutput.parentElement.append(winDiv);
+    return winDiv;
 }
 
 function max(a,b) {
      return (a > b) ? a : b;
-}
-
-function playerPlay() {
-   // get player selection somehow
-   return prompt("Give me rock, paper or scissors.");
 }
