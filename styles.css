@@ -7,6 +7,7 @@
     --light-green:  rgb(161, 209, 166);
     --colourful-color: rgb(240, 187, 98);
     --lightest-bg: rgb(244, 238, 169);
+    --red: rgb(255,0,0);
 }
 
 body {
@@ -64,12 +65,12 @@ body {
     align-items: center;
 }
 
-#left{
+.left{
     background-color: var(--light-bg);
 
 }
 
-#right{
+.right{
     background-color: var(--colourful-color);
 }
 
@@ -96,8 +97,6 @@ body {
     padding-bottom: 5vw;
 }
 #playerButtons{
-    height: 4rem;
-    width: 4rem;
     flex: 0;
     display:flex;
     justify-content: center;
@@ -107,13 +106,17 @@ body {
 .playerButton{
     background-color: var(--light-green);
     border-color: var(--colourful-color);
-    border-radius: 20px;
+    border-radius: 1rem;
     border-style: solid;
     font-size: small;
+    padding:0px;
+    margin:0px;
+    display: flex;
+    cursor: pointer;
 }
 #computerChoice{
-    height: 4rem;
-    width: 4rem;
+    height:10vh;
+    width:10vh;
     background-color: var(--lightest-bg);
     display:flex;
     flex-flow: column nowrap;
@@ -123,6 +126,25 @@ body {
     border-style: solid;
     border-color: var(--light-bg);
 }
+
+.playerActionImage{
+    height:10vh;
+    width:10vh;
+    object-fit:cover;
+    border-radius: 1rem;
+}
+
+#computerChoiceImage{
+    height:inherit;
+    width:inherit;
+    object-fit:cover;
+    border-radius: 18px;
+}
+
+.backgroundRed{
+    background-color: var(--red);
+}
+
 #textOutput{
     text-align: center;
     background-color: var(--lightest-bg);

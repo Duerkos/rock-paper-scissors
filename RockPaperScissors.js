@@ -1,8 +1,26 @@
+const textOutput = document.querySelector("#textOutput");
+const playerDiv = document.querySelector(".left");
+const computerDiv = document.querySelector(".right");
+const computerChoiceImage = document.querySelector("#computerChoiceImage");
+
+function ChangeComputerImage(name){
+    computerChoiceImage.src = "./img/" + name + ".jpg"
+}
+
 function computerPlay() {
     let play = Math.random()*3
-    if (play < 1) return "rock";
-    else if (play < 2) return "paper";
-    else return "scissors";
+    if (play < 1) {
+        ChangeComputerImage("rock");
+        return "rock";
+    }
+    else if (play < 2) {
+        ChangeComputerImage("paper");
+        return "paper";
+    }
+    else {
+        ChangeComputerImage("scissors");
+       return "scissors";
+    }
 }
 
 
@@ -16,30 +34,41 @@ function playRound (playerSelection, computerSelection) {
     else return "computer";
 }
 
-function game(){
-    let computerWins = 0;
-    let playerWins = 0;
+let computerWins = 0;
+let playerWins = 0;
+//(max(computerWins, playerWins) < 5)
+
+
+const buttonalerts = document.querySelectorAll('.playerButton');
+buttonalerts.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+      game(button.id);
+    });
+  });
+
+function game(playerSelection){
     let winner;
-    
-    while (max(computerWins, playerWins) < 5){
-        let playerSelection = playerPlay();
         let computerSelection = computerPlay();
         winner = playRound(playerSelection, computerSelection);
+        computerDiv.classList.remove("backgroundRed");
+        playerDiv.classList.remove("backgroundRed");
         switch (winner) {
             case "player":
                 playerWins++;
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+                computerDiv.classList.add("backgroundRed");
+                textOutput.textContent = (`You Win! ${playerSelection} beats ${computerSelection}`);
                 break;
             case "computer":
                 computerWins++;
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+                playerDiv.classList.add("backgroundRed");
+                textOutput.textContent = (`You Lose! ${computerSelection} beats ${playerSelection}`);
                 break;
             case "tables":
-                console.log(`Tables! Both chose ${computerSelection}`);
+                textOutput.textContent = (`Tables! Both chose ${computerSelection}`);
                 break;
         }
-    }
-    console.log((computerWins < playerWins) ? `You win the game: ${playerWins} vs ${computerWins}` : `Computer won the game: ${computerWins} vs ${playerWins}`)
+    // textOutput.textContent = ((computerWins < playerWins) ? `You win the game: ${playerWins} vs ${computerWins}` : `Computer won the game: ${computerWins} vs ${playerWins}`)
 }
 
 function max(a,b) {
