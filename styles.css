@@ -1,0 +1,209 @@
+/* Palette from https://colorhunt.co/palette/125c133e7c17f4a442e8e1d9 */
+
+
+:root {
+    --header-bg: rgb(6, 70, 53);
+    --light-bg: rgb(81, 146, 89);
+    --light-green:  rgb(161, 209, 166);
+    --colourful-color: rgb(240, 187, 98);
+    --lightest-bg: rgb(244, 238, 169);
+    --red: rgb(219, 10, 10);
+}
+
+body {
+    margin: 0px;
+    display: flex;
+    flex-flow: column nowrap;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+  }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+}
+
+#imgDuerkos {
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    border: 4px;
+    border-style: solid;
+    border-radius: 50%;
+}
+
+.header {
+    display: flex;
+    justify-content:space-around;
+    flex-flow: row nowrap;
+    height: 5rem;
+    align-items: center;
+    background-color: var(--header-bg);
+    padding: 0.2rem;
+}
+
+.title {
+    color:white;
+    font-size:x-large;
+   }
+
+.header img{
+    max-height: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+}
+
+#mainContainer{
+    display:flex;
+    flex-flow: row wrap-reverse;
+    justify-content: space-around;
+}
+
+.left{
+    background-color: var(--light-bg);
+
+}
+
+.right{
+    background-color: var(--colourful-color);
+}
+
+.avatar img{
+    object-fit: cover;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: var(--colourful-color);
+    width:30vw;
+    height:30vw;
+}
+
+#programAvatar {
+    border-color: var(--light-bg);
+}
+
+.halfContainer{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-evenly;
+    flex: 1;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    transition-duration: .6s;
+}
+#playerButtons{
+    flex: 0;
+    display:flex;
+    justify-content: center;
+    flex-flow:column nowrap;
+    gap: 0.5rem;
+}
+.playerButton{
+    background-color: var(--light-green);
+    border-color: var(--colourful-color);
+    border-radius: 1rem;
+    border-width: 0.5rem;
+    border-style: solid;
+    font-size: small;
+    padding:0px;
+    margin:0px;
+    display: flex;
+    cursor: pointer;
+}
+#computerChoice{
+    height:10vh;
+    width:10vh;
+    background-color: var(--lightest-bg);
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 0.5rem;
+    border-color: var(--light-bg);
+}
+.avatarContainer{
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.score{
+    height:5vh;
+    width:5vh;
+    font-size:x-large;
+    font-weight: bolder;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 0.5rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.playerActionImage {
+    transition-duration: .5s;
+}
+
+#computerChoiceImage {
+    transition-duration: 1s;
+}
+
+#playerScore{
+    border-color: var(--colourful-color)
+}
+
+#computerScore{
+    border-color: var(--light-bg)
+}
+
+.playerActionImage{
+    height:10vh;
+    width:10vh;
+    object-fit:cover;
+    border-radius: 0.5rem;
+}
+
+#computerChoiceImage{
+    height:inherit;
+    width:inherit;
+    object-fit:cover;
+    border-radius: 0.5rem;
+}
+
+.backgroundRed{
+    background-color: var(--red);
+}
+
+button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+#textOutput{
+    text-align: center;
+    background-color: var(--lightest-bg);
+    padding: 1rem;
+}
+.winText{
+    text-align: center;
+    background-color: var(--header-bg);
+    color: white;
+    padding: 1rem;
+}
