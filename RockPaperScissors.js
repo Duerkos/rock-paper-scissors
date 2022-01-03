@@ -72,20 +72,42 @@ function game(playerSelection){
                 break;
         }
     if (max(computerWins, playerWins) >= 5){
+        if (computerWins > playerWins) winComputer();
+        else winPlayer();
+        document.querySelector(".score").remove();
         let winDiv = createWinDiv();
         winDiv.textContent = ((computerWins < playerWins) ? `You win the game!! ${playerWins} vs ${computerWins}` : `Computer won the game ${computerWins} vs ${playerWins}`);
         //hide buttons! well remove them lol, maybe we can readd them or just refresh
         //need to do more things here
-        buttonalerts.forEach((button) => {
-            button.remove();
-        });
+
+
     }
 }
+function winComputer(){
+    document.querySelector(".left").remove();
+    document.querySelector("#computerChoice").remove();
+}
 
+
+function winPlayer(){
+    document.querySelector(".right").remove();
+    document.querySelector(".buttonsContainer").remove();
+}
 function createWinDiv(){
     let winDiv = document.createElement("div");
+    let replayButton = document.createElement("button");
+    replayButton.textContent = "Replay";
+    replayButton.classList.add("playerButton");
+    replayButton.addEventListener('click', () => {
+        location.reload();
+      });
+
     winDiv.classList.add("winText");
+    
     textOutput.parentElement.append(winDiv);
+    document.querySelector(".halfContainer").append(replayButton);
+    
+
     return winDiv;
 }
 
