@@ -49,11 +49,6 @@ body {
     padding: 0.2rem;
 }
 
-.title {
-    color:white;
-    font-size:x-large;
-   }
-
 .header img{
     max-height: 2rem;
     object-fit: cover;
@@ -63,7 +58,7 @@ body {
 .header a{
     text-decoration: none;
     color: white;
-    font-size: medium;
+    font-size:larger;
 }
 
 #mainContainer{
@@ -81,13 +76,19 @@ body {
     background-color: var(--colourful-color);
 }
 
-.avatar img{
+.avatarImg{
     object-fit: cover;
     border-radius: 20px;
     border-style: solid;
     border-color: var(--colourful-color);
     width:30vw;
     height:30vw;
+}
+
+.avatarWin{
+    width: 35vw;
+    height: 35vw;
+    border-radius: 1rem;
 }
 
 #programAvatar {
@@ -100,8 +101,8 @@ body {
     align-items:center;
     justify-content: space-evenly;
     flex: 1;
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
     transition-duration: .6s;
 }
 #playerButtons{
@@ -206,4 +207,21 @@ button:active {
     background-color: var(--header-bg);
     color: white;
     padding: 1rem;
+}
+
+.replay {
+    height:4rem;
+    width:6rem;
+    font-size:large;
+    font-weight: bolder;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 0.5rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-bg);
+    border-color: var(--lightest-bg);
+    color: white;
+    cursor: pointer;
 }

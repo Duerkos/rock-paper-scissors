@@ -75,10 +75,9 @@ function game(playerSelection){
         if (computerWins > playerWins) winComputer();
         else winPlayer();
         document.querySelector(".score").remove();
+        document.querySelector(".avatarImg").classList.add("avatarWin");
         let winDiv = createWinDiv();
-        winDiv.textContent = ((computerWins < playerWins) ? `You win the game!! ${playerWins} vs ${computerWins}` : `Computer won the game ${computerWins} vs ${playerWins}`);
-        //hide buttons! well remove them lol, maybe we can readd them or just refresh
-        //need to do more things here
+        winDiv.textContent = ((computerWins < playerWins) ? `You win the game!! ${playerWins} vs ${computerWins}` : `Computer won the game: ${computerWins} vs ${playerWins}`);
 
 
     }
@@ -97,7 +96,7 @@ function createWinDiv(){
     let winDiv = document.createElement("div");
     let replayButton = document.createElement("button");
     replayButton.textContent = "Replay";
-    replayButton.classList.add("playerButton");
+    replayButton.classList.add("replay");
     replayButton.addEventListener('click', () => {
         location.reload();
       });
